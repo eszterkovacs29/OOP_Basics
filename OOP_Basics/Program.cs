@@ -13,9 +13,9 @@ namespace OOP_Basics
     {
         class Vehicle
         {
-            private string color;
-            private string brand;
-            private string type;
+            public string color {  get; private set; }
+            public string brand;
+            public string type;
 
             public Vehicle(string color, string brand, string type)
             {
@@ -62,15 +62,28 @@ namespace OOP_Basics
         }
         class Animal
         {
-            public string color;
-            public string species;
-            public string habitat;
+            public string color { get; private set; }
+            public string species { get; private set; }
+            public string habitat { get; private set; }
             public Animal(string color, string species, string habitat)
             {
                 this.color = color;
                 this.species = species;
                 this.habitat = habitat;
             }
+            public void SetColor(string color)
+            {
+                this.color = color;
+            }
+            public void SetSpecies(string species)
+            {
+                this.species = species;
+            }
+            public void SetHabitat(string habitat)
+            {
+                this.habitat = habitat;
+            }
+       
             public void Sound()
             {
                 if (this.species == "Bird")
@@ -113,6 +126,13 @@ namespace OOP_Basics
             Animal cat = new Animal("Tabby", "Cat", "My apartment");
             Animal dog = new Animal("Brown", "Dog", "Garden");
 
+            Console.WriteLine(bird.color);
+            bird.SetColor("Grey");
+            Console.WriteLine(bird.color);
+            Console.WriteLine(bird.species);
+            bird.SetSpecies("Sas");
+            Console.WriteLine(bird.species);
+            
 
 
             Console.ReadKey();
