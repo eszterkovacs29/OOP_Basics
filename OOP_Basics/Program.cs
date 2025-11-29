@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -12,9 +13,37 @@ namespace OOP_Basics
     {
         class Vehicle
         {
-            public string color;
-            public string brand;
-            public string type;
+            private string color;
+            private string brand;
+            private string type;
+
+            public Vehicle(string color, string brand, string type)
+            {
+                this.color = color;
+                this.brand = brand;
+                this.type = type;
+            }
+
+          
+            public string GetColor()
+            {
+                return this.color;
+            }
+            public string GetBrand()
+            {
+                return this.brand;
+            }
+            public string GetType()
+            {
+                return this.type;
+            }
+
+            public void SetColor(string color)
+            {
+                this.color = color;
+            }
+
+
             public void Move()
             {
                 if (this.type == "Ship")
@@ -36,17 +65,23 @@ namespace OOP_Basics
             public string color;
             public string species;
             public string habitat;
+            public Animal(string color, string species, string habitat)
+            {
+                this.color = color;
+                this.species = species;
+                this.habitat = habitat;
+            }
             public void Sound()
             {
-                if (this.species == "bird")
+                if (this.species == "Bird")
                 {
                     Console.WriteLine($"This {this.color} {this.species} lives in {this.habitat} and sings.");
                 }
-                if (this.species == "cat")
+                if (this.species == "Cat")
                 {
                     Console.WriteLine($"This {this.color} {this.species} lives in {this.habitat} and meows.");
                 }
-                if (this.species == "dog")
+                if (this.species == "Dog")
                 {
                     Console.WriteLine($"This {this.color} {this.species} lives in {this.habitat} and barks.");
                 }
@@ -64,40 +99,21 @@ namespace OOP_Basics
 
         static void Main(string[] args)
         {
-            Vehicle car = new Vehicle();
-            Vehicle ship = new Vehicle();
-            Vehicle bike = new Vehicle();
-            car.type = "Car";
-            car.brand = "Audi";
-            car.color = "Black";
+            Vehicle car = new Vehicle("Black", "Audi", "Car");
+            Vehicle ship = new Vehicle("Whhite", "Titanic", "Ship");
+            Vehicle bike = new Vehicle("Green", "Kawasaki", "Bike");
 
-            ship.type = "Ship";
-            ship.brand = "Titanic";
-            ship.color = "white";
+            Console.WriteLine($"Color property: {car.GetBrand()}");
+            Console.WriteLine($"Car color: {car.GetColor()}");
+            car.SetColor("Lila");
+            Console.WriteLine($"Car color: {car.GetColor()}");
 
-            bike.type = "Bike";
-            bike.brand = "Kawasaki";
-            bike.color = "green";
 
-            Animal bird = new Animal();
-            Animal cat = new Animal();
-            Animal dog = new Animal();
+            Animal bird = new Animal("Black", "Bird","Forest");
+            Animal cat = new Animal("Tabby", "Cat", "My apartment");
+            Animal dog = new Animal("Brown", "Dog", "Garden");
 
-            bird.color = "black";
-            bird.species = "bird";
-            bird.habitat = "forest";
 
-            cat.color = "tabby";
-            cat.species = "cat";
-            cat.habitat = "my apartment";
-
-            dog.color = "brown";
-            dog.species = "dog";
-            dog.habitat = "garden";
-
-            dog.Sound();
-            cat.Sound();
-            bird.Sound();
 
             Console.ReadKey();
         }
