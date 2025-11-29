@@ -10,6 +10,8 @@ namespace OOP_Basics
     {
         static void Main(string[] args)
         {
+
+            Console.ReadKey();
         }
     }
 }
